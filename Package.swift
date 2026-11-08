@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "shotname",
     platforms: [
-        .macOS(.v10_15)
+        .macOS(.v10_15_4)
     ],
     targets: [
         .executableTarget(name: "shotname", path: "Sources/shotname"),
