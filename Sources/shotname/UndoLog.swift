@@ -56,9 +56,9 @@ public struct UndoLog {
         guard let handle = FileHandle(forWritingAtPath: path) else {
             throw PlanError.unreadable(path)
         }
-        defer { try? handle.close() }
-        try handle.seekToEnd()
-        try handle.write(contentsOf: Data(text.utf8))
+        defer { handle.closeFile() }
+        handle.seekToEndOfFile()
+        handle.write(Data(text.utf8))
         return changed.count
     }
 
